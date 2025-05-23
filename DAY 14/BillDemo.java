@@ -33,6 +33,10 @@ class BillEntry{
 		this.p=p;
 		this.quantity=qty;
 	}
+
+	int getTotal(){
+		return p.getPrice()*quantity;
+	}
 	
 	void printBillEntry(){
 		System.out.println("Product name: "+p.getName()+" Unit Price: "+p.getUnitPrice()+" Number of Units: "+quantity+" Total Price: "+p.getUnitPrice()*quantity);
@@ -41,9 +45,17 @@ class BillEntry{
 
 class Bill{
 	ArrayList<BillEntry>billEntries=new ArrayList<>();
+	int grandTotal=0;
 	
 	void addEntry(BillEntry be){
 		billEntries.add(be);
+		grandTotal+=entry.getTotal();
+	}
+
+	void getEntries(){
+		for(BillEntry entry: billEntries){
+			System.out.println(entry.p.getName()+" X "+entry.quantity+" = "+entry.getTotal());
+		}
 	}
 	
 	void printBill(){
@@ -52,13 +64,6 @@ class Bill{
 		
 		}
 	}
-	
-	/*void printTotalBill(){
-		for(BillEntry e: billEntries){
-			total=total+p.getUnitPrice()*quantity;
-			System.out.println("Your Total Bill is "+e.total);
-		}
-	}*/
 }
 
 class BillDemo{
