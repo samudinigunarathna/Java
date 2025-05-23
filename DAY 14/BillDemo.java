@@ -29,7 +29,7 @@ class BillEntry{
 	Product p;
 	int quantity; //Number of units
 	
-	BillEntry(Product p, int qty, int total){
+	BillEntry(Product p, int qty){
 		this.p=p;
 		this.quantity=qty;
 	}
